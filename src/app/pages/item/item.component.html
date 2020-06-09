@@ -1,0 +1,30 @@
+<div class="container">
+  <ng-container *ngIf="loadingItem && !failedItem">
+    <div>Loading ...</div>
+  </ng-container>
+  <ng-container *ngIf="!loadingItem && !failedItem">
+    <div class="img" [ngStyle]="{ background: 'url(' + dataItem.image_url + ') no-repeat center center' }"></div>
+    <div class="label">{{ dataItem.label }}</div>
+  </ng-container>
+</div>
+
+<div *ngIf="!loadingOffers && !dataOffers?.length" class="empty">Empty list :(</div>
+
+<div *ngIf="loadingOffers" class="loading"><mat-spinner></mat-spinner></div>
+
+<table *ngIf="!loadingOffers && dataOffers?.length">
+  <thead>
+  <tr>
+    <th>Username</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of dataOffers">
+    <td>{{ item.user }}</td>
+    <td>{{ item.price }}</td>
+    <td><button class="btn btn--primary">Buy</button></td>
+  </tr>
+  </tbody>
+</table>

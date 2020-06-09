@@ -1,0 +1,9 @@
+<div class="banner">
+  <h1>Eldorado.gg</h1>
+  <h2>Praktinė užduotis</h2>
+</div>
+<div class="game-cards">
+  <div *ngFor="let item of GAMES">
+    <app-game-card [game]="item"></app-game-card>
+  </div>
+</div>

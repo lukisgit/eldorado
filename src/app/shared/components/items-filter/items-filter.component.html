@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>{{ game?.label }} items</h1>
+  <button class="btn btn--primary" routerLink="/">Back</button>
+  <div *ngIf="!initAttributes" class="loading">Loading...</div>
+  <div *ngIf="initAttributes" class="filters">
+    <div *ngFor="let attr of attributes">
+      <label [attr.for]="attr.id">{{attr.id}}</label><br>
+      <select [name]="attr.id" [id]="attr.id" (change)="onChange(attr.id, $event)">
+        <option [value]="">-</option>
+        <option *ngFor="let option of attr?.options" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+  </div>
+</div>

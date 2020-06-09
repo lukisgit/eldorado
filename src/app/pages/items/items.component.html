@@ -1,0 +1,20 @@
+<app-items-filter [game]="game" [attributes]="attributes" [loading]="loading" [initAttributes]="initAttributes" (onFilter)="onFilter($event)"></app-items-filter>
+
+<div *ngIf="!loading && !items?.length" class="empty">Empty list :(</div>
+
+<div *ngIf="loading" class="loading"><mat-spinner></mat-spinner></div>
+
+<table *ngIf="!loading && items?.length">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td><div class="img" [ngStyle]="{ background: 'url(' + item.data.image_url + ') no-repeat center center' }"></div>{{ item.id }}</td>
+      <td><button class="btn btn--primary" routerLink="/item/{{item.data.id}}">Buy</button></td>
+    </tr>
+  </tbody>
+</table>

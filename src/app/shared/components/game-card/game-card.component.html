@@ -1,0 +1,4 @@
+<div class="game-card" [routerLink]="'/game/' + game?.id + '/items'">
+  <div class="game-card__bg" [ngStyle]="{ background: 'url(/assets/images/game-cards/' + game?.id + '.jpg) no-repeat center center' }"></div>
+  <div class="game-card__label">{{ game?.label }}</div>
+</div>
